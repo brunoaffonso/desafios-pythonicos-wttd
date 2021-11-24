@@ -11,8 +11,16 @@ Finalmente, dadas duas strings a e b, retorne uma string na forma:
 a-frente + b-frente + a-trás + b-trás
 """
 def front_back(a, b):
-    # +++ SUA SOLUÇÃO +++
-    return
+    def divideString(string):
+        if len(string) % 2 == 0:
+            return [string[:(len(string) // 2)], string[(len(string) // 2):]]
+        else:
+            return [string[:(len(string) // 2) + 1], string[(len(string) // 2) + 1:]]
+
+    string_a = divideString(a)
+    string_b = divideString(b)
+
+    return string_a[0] + string_b[0] + string_a[1] + string_b[1]
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
