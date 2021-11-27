@@ -21,6 +21,8 @@ def match_ends(words):
 
     return counter
 
+# Tentar com  list comprehensions e com generator expressions
+
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
 def test(f, in_, expected):
