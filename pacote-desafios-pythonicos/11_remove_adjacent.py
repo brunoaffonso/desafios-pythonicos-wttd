@@ -9,8 +9,21 @@ Irá retornar: [1, 2, 3]
 """
 
 def remove_adjacent(nums):
-    # +++ SUA SOLUÇÃO +++
-    return
+    new_list = []
+    if not nums:
+        return []
+    else:
+        for i in range(len(nums)):
+            if new_list == []:
+                new_list.append(nums[i])
+            else:
+                if nums[i] != new_list[-1]:
+                    new_list.append(nums[i])
+                else:
+                    continue
+    return new_list
+
+# Refazer com o método de retirar itens da lista principal e com sugestões dadas na aula
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
