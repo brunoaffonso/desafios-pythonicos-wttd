@@ -4,15 +4,16 @@
 Dada uma lista de tuplas não vazias, retorne uma lista ordenada em ordem
 crescente com base no último elemento de cada tupla.
 
-Exemplo: [(1, 7), (1, 3), (3, 4, 5), (2, 2)]
+Exemplo: [(1, 7), (1, 3), (3, 4, 5), (2, 2)]:
 Irá retornar: [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 
 Dica: Use uma custom key= function para extrair o ultimo elemento de cada tupla.
 """
 def sort_last(tuples):
-    # +++ SUA SOLUÇÃO +++
-    return
+    tuples.sort(key=lambda t: t[-1])
+    return tuples
 
+# Resolver das formas sugeridas no video.
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
