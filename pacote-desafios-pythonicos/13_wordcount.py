@@ -56,6 +56,42 @@ import sys
 
 # +++ SUA SOLUÇÃO +++
 # Defina as funções print_words(filename) e print_top(filename).
+import fileinput
+
+def read_file(filename):
+    words_list = []
+    for line in fileinput.input(filename):
+        for i in line.split(" "):
+            words_list.append(i.replace("\n", "").lower())
+    return words_list
+
+def union(full_list):
+    results = set()
+    for i in full_list:
+        results.add(i)
+    results = list(results)
+    results.sort()
+    return results
+
+def print_words(filename):
+    words = read_file(filename)
+    values = union(words)
+
+    for i in values:
+        print(f'{i} {words.count(i)}')
+    return None
+
+def print_top(filename):
+    words = read_file(filename)
+    values = union(words)
+    results = []
+
+    for i in values:
+        results.append((i, words.count(i)))
+    results.sort(key=lambda x : x[-1], reverse=True)
+    for i in results:
+        print(f'{i[0]} {i[1]}')
+    return None
 
 
 # A função abaixo chama print_words() ou print_top() de acordo com os
