@@ -10,8 +10,28 @@ A sua solução deve rodar em tempo linear, ou seja, deve fazer uma
 """
 
 def linear_merge(list1, list2):
-    # +++ SUA SOLUÇÃO +++
-    return
+    finalList = []
+    sentinel1 = 0
+    sentinel2 = 0
+
+    for i in range(len(list1) + len(list2)):
+        if sentinel1 >= len(list1):
+            finalList.append(list2[sentinel2])
+            sentinel2 += 1
+        elif sentinel2 >= len(list2):
+            finalList.append(list1[sentinel1])
+            sentinel1 += 1
+        else:
+            if list1[sentinel1] < list2[sentinel2]:
+                finalList.append(list1[sentinel1])
+                sentinel1 += 1
+            else:
+                finalList.append(list2[sentinel2])
+                sentinel2 += 1
+
+    return finalList
+
+# Estudar método merge do pacote heap
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
