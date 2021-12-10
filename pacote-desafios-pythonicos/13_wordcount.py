@@ -70,27 +70,32 @@ def union(full_list):
     for i in full_list:
         results.add(i)
     results = list(results)
-    results.sort()
     return results
+
+def make_list_of_tuple(full_list, unique_values):
+    results = []
+    for i in unique_values:
+        results.append((i, full_list.count(i)))
+    return results
+
+def print_results(list_of_tuple):
+    for i in list_of_tuple:
+        print(f'{i[0]} {i[1]}')
 
 def print_words(filename):
     words = read_file(filename)
     values = union(words)
-
-    for i in values:
-        print(f'{i} {words.count(i)}')
+    results = make_list_of_tuple(words, values)
+    results.sort()
+    print_results(results)
     return None
 
 def print_top(filename):
     words = read_file(filename)
     values = union(words)
-    results = []
-
-    for i in values:
-        results.append((i, words.count(i)))
+    results = make_list_of_tuple(words, values)
     results.sort(key=lambda x : x[-1], reverse=True)
-    for i in results:
-        print(f'{i[0]} {i[1]}')
+    print_results(results)
     return None
 
 
