@@ -59,6 +59,13 @@ import sys
 import fileinput
 
 def read_file(filename):
+    words_lists = []
+    with open(filename) as f:
+        for line in f.read().split():
+            words_lists.append(line.lower())
+    return words_lists
+
+def alternative_read_file(filename):
     words_list = []
     for line in fileinput.input(filename):
         for i in line.split(" "):
