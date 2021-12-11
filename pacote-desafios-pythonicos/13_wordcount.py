@@ -102,7 +102,7 @@ def print_top(filename):
     values = union(words)
     results = make_list_of_tuple(words, values)
     results.sort(key=lambda x : x[-1], reverse=True)
-    print_results(results)
+    print_results(results[:20])
     return None
 
 
