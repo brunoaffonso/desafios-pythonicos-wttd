@@ -50,33 +50,43 @@ def read_file(filename):
             words_lists.append(line.lower())
     return words_lists
 
+
 def mimic_dict(filename):
-    words_list = read_file(filename)
-    words_dict = {'': [words_list[0]], words_list[-1]: ['']}
+    words_list = read_file(filename)[:200]
+    words_dict = {'': [words_list[0]]}     #words_list[-1]: [''] - last item
     for i in words_list:
         words_dict[i] = []
 
     for index, i in enumerate(words_list[:-1]):
         if i in words_dict:
             words_dict[i].append(words_list[index + 1])
-
-    # print(words_dict)
-
     return words_dict
 
 
 def print_mimic(mimic_dict, word):
     fake_text = word
 
+    def insert_next(value):
+        if not value:
+            return ''
+        else:
+            return random.choice(value)
+
+
+    def last_word(string):
+        list = string.split(' ')
+        return list[-1]
+
+
     for key in mimic_dict.keys():
-        if mimic_dict[key] != []:
-            # print(mimic_dict[key])
-            fake_text += f'{key} {random.choice(mimic_dict[key])} '
-            # print(f'{key} {random.choice(mimic_dict[key])} ')
+        if last_word(fake_text) == key:
+            fake_text += ' ' + insert_next(mimic_dict[key])
+            continue
+        else:
+            fake_text += f' {key} {insert_next(mimic_dict[key])}'
+
     print(fake_text)
-    """Dado o dicionario imitador e a palavra inicial, imprime texto de 200 palavras."""
-    # +++ SUA SOLUÇÃO +++
-    return
+    return fake_text
 
 
 # Chama mimic_dict() e print_mimic()
