@@ -88,6 +88,8 @@ def print_mimic(mimic_dict, word):
     print(fake_text)
     return fake_text
 
+# Ver pacote Collections, default dict e counter (ambos dentro do Collections)
+
 
 # Chama mimic_dict() e print_mimic()
 def main():
